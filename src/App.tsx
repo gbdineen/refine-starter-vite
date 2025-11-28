@@ -3,7 +3,7 @@ import routerProvider, { NavigateToResource } from "@refinedev/react-router";
 
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 
-import { RefineThemes, ThemedLayout } from "@refinedev/mui";
+import { RefineThemes, ThemedLayout, ThemedTitle } from "@refinedev/mui";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import GlobalStyles from "@mui/material/GlobalStyles";
@@ -18,7 +18,7 @@ import { ListProducts } from "./pages/products/list";
 import { CreateProduct } from "./pages/products/create";
 
 import { Login } from "./pages/login";
-import { Header } from "./components/header";
+// import { Header } from "./components/header";
 
 export default function App(): JSX.Element {
   return (
@@ -28,7 +28,7 @@ export default function App(): JSX.Element {
         <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
         <Refine
           dataProvider={dataProvider}
-          authProvider={authProvider}~
+          authProvider={authProvider}
           routerProvider={routerProvider}
           resources={[
             {
@@ -45,7 +45,11 @@ export default function App(): JSX.Element {
             <Route
               element={
                <Authenticated key="authenticated-routes" redirectOnFail="/login">
-                  <ThemedLayout>
+                  <ThemedLayout
+                    Title={(props) => (
+                      <ThemedTitle {...props} text="Awesome Project" />
+                    )}
+                  >
                     <Outlet />
                   </ThemedLayout>
                 </Authenticated>

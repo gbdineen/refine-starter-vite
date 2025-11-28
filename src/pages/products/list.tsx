@@ -1,7 +1,15 @@
 import { useTable, useMany, useNavigation } from "@refinedev/core";
+import { useDataGrid, EditButton, ShowButton } from "@refinedev/mui";
+
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Link } from "react-router";
 
 export const ListProducts = () => {
+
+    const { dataGridProps } = useDataGrid<IProduct>({
+        sorters: { initial: [{ field: "id", order: "asc" }] },
+        syncWithLocation: true,
+    });
 
     const {
         result,
