@@ -17,27 +17,26 @@ import { Login } from "./pages/login";
 
 export default function App(): JSX.Element {
   return (
-    ~<BrowserRouter>
+    <BrowserRouter>
       <Refine
         dataProvider={dataProvider}
         authProvider={authProvider}
         routerProvider={routerProvider}
-        resources={[
-          {
-            name: "protected-products",
-            list: "/products",
-            show: "/products/:id",
-            edit: "/products/:id/edit",
-            create: "/products/create",
-            meta: { label: "Products" },
-          },
-        ]}
+        // resources={[
+        //   {
+        //     name: "protected-products",
+        //     list: "/products",
+        //     show: "/products/:id",
+        //     edit: "/products/:id/edit",
+        //     create: "/products/create",
+        //     meta: { label: "Products" },
+        //   },
+        // ]}
       >
         <Routes>
           <Route
             element={
-              // <Authenticated key="authenticated-routes" fallback="/login">
-              <Authenticated key="protected" fallback={<Login />}>
+              <Authenticated key="authenticated-routes" fallback="/login">
                 <Header />
                 {/* <Outlet /> */}
                 {/* <ShowProduct /> */}
