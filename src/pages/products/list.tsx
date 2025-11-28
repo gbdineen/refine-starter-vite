@@ -1,4 +1,4 @@
-import { useList, useTable, useMany, useNavigation } from "@refinedev/core";
+import { useTable, useMany, useNavigation } from "@refinedev/core";
 import { Link } from "react-router";
 
 export const ListProducts = () => {
@@ -13,10 +13,14 @@ export const ListProducts = () => {
         setSorters,
     } = useTable({
         // resource: "products",
-        resource: "protected-products",
+        // resource: "protected-products",
         pagination: { currentPage: 1, pageSize: 10 },
         sorters: { initial: [{ field: "id", order: "asc" }] },
+        syncWithLocation: true,
     });
+
+    // const { show, edit } = useNavigation();
+    const { showUrl, editUrl } = useNavigation();
 
     const { result: categories } = useMany({
         resource: "categories",
@@ -70,7 +74,7 @@ export const ListProducts = () => {
 
     // You can also use methods like show or list to trigger navigation.
     // We're using url methods to provide more semantically correct html.
-    const { showUrl, editUrl } = useNavigation();
+    // const { showUrl, editUrl } = useNavigation();
 
     return (
         <div>

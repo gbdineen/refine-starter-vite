@@ -5,7 +5,11 @@ export const CreateProduct = () => {
     //     action: "create",
     //     resource: "products",
     // });
-    const { onFinish, mutation } = useForm();
+    const { onFinish, mutation } = useForm({
+        // We can also provide `false` to disable the redirect.
+        // Default value is `"list"`.
+        redirect: "edit",
+    });
 
     const { options } = useSelect({
         resource: "categories",

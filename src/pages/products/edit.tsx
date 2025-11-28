@@ -7,7 +7,11 @@ export const EditProduct = () => {
     //     id: "123",
     // });
 
-    const { onFinish, mutation, query } = useForm();
+    const { onFinish, mutation, query } = useForm(
+        {
+            redirect: "show",
+        }
+    );
 
 
     const record = query.data?.data;

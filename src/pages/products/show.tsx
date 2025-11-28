@@ -4,8 +4,8 @@ export const ShowProduct = () => {
     const {
         result,
         query: { isLoading },
-    // } = useShow();
-     } = useOne({ resource: "products", id: 123 });
+    } = useShow();
+    //  } = useOne({ resource: "products", id: 123 });
 
     if (isLoading) {
         return <div>Loading...</div>;
